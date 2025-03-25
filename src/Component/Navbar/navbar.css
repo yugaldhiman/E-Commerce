@@ -271,6 +271,11 @@
     top: 8px;
 }
 
+.nav-menu-visible {
+    display: flex !important;
+}
+
+
 /* Mobile Responsive */
 @media (max-width: 800px) {
     .navbar {
