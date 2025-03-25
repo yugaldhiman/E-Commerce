@@ -59,7 +59,8 @@
 .nav-login-cart {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    /*  */
 }
 
 .nav-login-cart button {
