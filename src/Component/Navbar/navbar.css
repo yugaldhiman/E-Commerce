@@ -14,7 +14,7 @@
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    /* gap: 5px; */
 }
 
 .nav-logo {
@@ -22,7 +22,6 @@
     font-size: 25px;
     font-weight: 600;
     text-decoration: none;
-    /* Removes underline */
 }
 
 .nav-menu {
