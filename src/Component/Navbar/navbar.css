@@ -181,9 +181,6 @@
 
 
 
-
-
-
 /* Navbar Styling */
 .navbar {
     display: flex;
@@ -323,7 +320,7 @@
         text-align: center;
     }
 
-    .nav-menu-visible {
+    .nav-menu.nav-menu-visible {
         display: flex;
     }
 
