@@ -181,10 +181,11 @@
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 16px;
     box-shadow: 0px 1px 3px -2px black;
+    width: 100%;
 }
 
 .nav-logo {
@@ -238,7 +239,7 @@
 }
 
 .nav-login-cart button {
-    width: 107px;
+    width: 100px;
     height: 35px;
     outline: none;
     border: 1px solid #7a7a7a;
@@ -304,7 +305,7 @@
 
 @media(max-width:800px) {
     .navbar {
-        padding: 10px 0px;
+        padding: 10px;
     }
 
     .nav-drop-down {
@@ -316,12 +317,15 @@
 
     .nav-menu {
         display: none;
-        height: 80px;
+        flex-direction: column;
+        height: auto;
         width: 100%;
         position: absolute;
         justify-content: center;
         background: white;
         top: 50px;
+        left: 0;
+        padding: 10px 0;
     }
 
     .nav-menu-visble {
@@ -335,7 +339,7 @@
 
 @media (max-width:500px) {
     .navbar {
-        padding: 6px 10px;
+        padding: 8px;
         gap: 0;
         width: 100%;
     }
@@ -345,20 +349,18 @@
     }
 
     .nav-menu {
-        height: 60px;
-        top: 50px;
-        font-size: 12px;
+        height: auto;
+        top: 60px;
         gap: 10px;
+        padding: 10px 0;
+    }
+
+    .nav-menu li {
+        font-size: 16px;
     }
 
     .nav-login-cart {
-        transform: scale(0.8);
-    }
-
-    .nav-login-cart button {
-        width: 75px;
-        height: 30px;
-        font-size: 12px;
+        transform: scale(0.9);
     }
 
     .nav-drop-down.open {
