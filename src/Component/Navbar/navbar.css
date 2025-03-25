@@ -184,7 +184,6 @@
 
 
 
-
 /* Navbar Styling */
 .navbar {
     display: flex;
@@ -204,7 +203,7 @@
     align-items: center;
     gap: 10px;
     color: #171717;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
     text-decoration: none;
 }
@@ -213,7 +212,7 @@
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 15px;
     color: #626262;
     font-size: 14px;
 }
@@ -247,26 +246,26 @@
 }
 
 .nav-login-cart button {
-    width: 100px;
-    height: 35px;
+    width: 90px;
+    height: 30px;
     outline: none;
     border: 1px solid #7a7a7a;
-    border-radius: 75px;
+    border-radius: 50px;
     color: #515151;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     background: white;
     cursor: pointer;
 }
 
 .nav-login-cart img {
-    height: 30px;
+    height: 25px;
 }
 
 .nav-cart-count {
-    height: 18px;
-    width: 18px;
-    font-size: 12px;
+    height: 16px;
+    width: 16px;
+    font-size: 10px;
     border-radius: 50%;
     background-color: red;
     color: white;
@@ -274,8 +273,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    top: -10px;
-    left: -10px;
+    top: -8px;
+    left: -8px;
 }
 
 .nav-drop-down {
@@ -290,24 +289,24 @@
     }
 
     .nav-menu {
-        gap: 15px;
-        font-size: 14px;
+        gap: 12px;
+        font-size: 13px;
     }
 
     .nav-login-cart button {
-        width: 90px;
-        font-size: 14px;
+        width: 85px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 800px) {
     .navbar {
-        padding: 10px 20px;
+        padding: 10px 15px;
     }
 
     .nav-drop-down {
         display: block;
-        width: 30px;
+        width: 25px;
         transform: rotate(-90deg);
         transition: 0.5s;
     }
@@ -316,11 +315,11 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 55px;
         left: 0;
         width: 100%;
         background: white;
-        padding: 10px 0;
+        padding: 8px 0;
         text-align: center;
     }
 
@@ -335,18 +334,31 @@
 
 @media (max-width: 500px) {
     .navbar {
-        padding: 8px 15px;
+        padding: 8px 10px;
     }
 
     .nav-logo {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .nav-menu {
-        top: 50px;
+        top: 45px;
+        font-size: 12px;
     }
 
     .nav-login-cart {
-        transform: scale(0.9);
+        transform: scale(0.85);
+    }
+
+    .nav-login-cart button {
+        width: 80px;
+        height: 28px;
+        font-size: 11px;
+    }
+
+    .nav-cart-count {
+        width: 14px;
+        height: 14px;
+        font-size: 9px;
     }
 }
