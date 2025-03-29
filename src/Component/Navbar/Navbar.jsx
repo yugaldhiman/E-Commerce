@@ -74,19 +74,19 @@ function Navbar() {
             </div>
             <img className='nav-drop-down' ref={dropDownRef} onClick={drop} src={drop_down} alt="dropdown" />
             <ul className="nav-menu" ref={menuRef}>
-                <li onClick={() => setMenuLine('shop')}>
+                <li onClick={() => { setMenuLine('shop'); menuRef.current.classList.remove('nav-menu-visible'); }}>
                     <Link to='/'>Shop</Link>
                     {menuLine === "shop" && <hr />}
                 </li>
-                <li onClick={() => setMenuLine('men')}>
+                <li onClick={() => { setMenuLine('men'); menuRef.current.classList.remove('nav-menu-visible'); }}>
                     <Link to='/men'>Men</Link>
                     {menuLine === "men" && <hr />}
                 </li>
-                <li onClick={() => setMenuLine('women')}>
+                <li onClick={() => { setMenuLine('women'); menuRef.current.classList.remove('nav-menu-visible'); }}>
                     <Link to='/women'>Women</Link>
                     {menuLine === "women" && <hr />}
                 </li>
-                <li onClick={() => setMenuLine('kids')}>
+                <li onClick={() => { setMenuLine('kids'); menuRef.current.classList.remove('nav-menu-visible'); }}>
                     <Link to='/kids'>Kids</Link>
                     {menuLine === "kids" && <hr />}
                 </li>
