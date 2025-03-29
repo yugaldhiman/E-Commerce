@@ -93,7 +93,7 @@ function Navbar() {
             </ul>
             <div className="nav-login-cart">
                 <Link to='/login'><button>Login</button></Link>
-                <Link to='/cart'><img src={cartIcon} alt="cart" /></Link>
+                <Link to='/cart'><img className='nav-cart-icon' src={cartIcon} alt="cart" /></Link>
                 <div className="nav-cart-count">{getTotalItem()}</div>
             </div>
         </div>
