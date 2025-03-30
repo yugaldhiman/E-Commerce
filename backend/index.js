@@ -15,14 +15,13 @@ app.use(cors());
 // Database connection with mongoDB
 mongoose.connect('mongodb+srv://yugaldhiman14:14051999@cluster0.cmagfnz.mongodb.net/e-commerce');
 
-//  Api creation
 
+//  Api creation
 app.get('/', (req, res) => {
     res.send('Express App is Running')
 })
 
 //  Image Storage Ingine
-
 const storage = multer.diskStorage({
     destination: './upload/images',
     filename: (req, file, cb) => {
@@ -32,18 +31,17 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 //  creating Upload Endpoint for images
+app.use('/images', express.static(path.join(__dirname, 'upload/images')));
 
-app.use('/images', express.static('upload/images'))
 
 app.post('/upload', upload.single('product'), (req, res) => {
-    // 
+    // console.log("Received File:", req.file);
     if (!req.file) {
         return res.status(400).json({
             success: 0,
             message: "No file uploaded or wrong key"
         });
     }
-    // 
     res.json({
         success: 1,
         image_url: `http://localhost:${port}/images/${req.file.filename}`
