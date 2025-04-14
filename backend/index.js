@@ -72,7 +72,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
     }
     res.json({
         success: 1,
-        image_url: `https://e-commerce-admin-vu5c.onrender.com/images/${req.file.filename}`
+        image_url: `https://e-commerce-backend-sme3.onrender.com/images/${req.file.filename}`
 `,
     });
 });
