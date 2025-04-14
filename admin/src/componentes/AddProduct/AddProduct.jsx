@@ -28,7 +28,7 @@ const AddProduct = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        let response = await fetch('http://localhost:4000/upload', {
+        let response = await fetch('https://e-commerce-backend-sme3.onrender.com/upload', {
             method: 'POST',
             headers: { Accept: 'application/json' },
             body: formData
@@ -40,7 +40,7 @@ const AddProduct = () => {
             let updatedProduct = { ...productDetails, image: responseData.image_url };
             console.log("Final Product:", updatedProduct);
 
-            let productResponse = await fetch('http://localhost:4000/addproduct', {
+            let productResponse = await fetch('https://e-commerce-backend-sme3.onrender.com/addproduct', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
