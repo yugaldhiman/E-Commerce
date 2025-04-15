@@ -85,7 +85,7 @@ hr {
     }
 
     .listproduct-remove-icon {
-        width: 20px;
+        width: 15px;
         cursor: pointer;
         transition: transform 0.2s ease-in-out;
     }
