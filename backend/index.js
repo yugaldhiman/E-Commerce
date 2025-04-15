@@ -64,17 +64,32 @@ const Product = mongoose.model("Product", productSchema);
 app.get("/", (req, res) => res.send("Express App is Running"));
 
 // Upload Image API
+
+// app.post("/upload", upload.single("product"), (req, res) => {
+//     if (!req.file) {
+//         return res
+//             .status(400)
+//             .json({ success: 0, message: "No file uploaded or wrong key" });
+//     }
+//     res.json({
+//         success: 1,
+//         image_url: `https://e-commerce-backend-sme3.onrender.com/images/${req.file.filename}`,
+//     });
+// });
+
 app.post("/upload", upload.single("product"), (req, res) => {
     if (!req.file) {
-        return res
-            .status(400)
-            .json({ success: 0, message: "No file uploaded or wrong key" });
+        return res.status(400).json({ success: 0, message: "No file uploaded or wrong key" });
     }
+
+    const imageUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+
     res.json({
-        success: 1,
-        image_url: `https://e-commerce-backend-sme3.onrender.com/images/${req.file.filename}`,
+        success: true,
+        image_url: imageUrl,
     });
 });
+
 
 // Add Product API with Auto-Increment ID
 app.post("/addproduct", async (req, res) => {
