@@ -62,14 +62,14 @@ hr {
     }
 
     .listproduct-format-main1 {
-        font-size: 11px;
-        gap: 20px;
+        font-size: 9px;
+        gap: 15px;
         padding: 10px 0px;
     }
 
     .listproduct-format-main2 {
-        font-size: 13px;
-        gap: 25px;
+        font-size: 12px;
+        gap: 20px;
         padding: 5px 0px;
     }
 
@@ -82,5 +82,11 @@ hr {
         height: 8vh;
         border-radius: 10%;
         border: 1px solid gray;
+    }
+
+    .listproduct-remove-icon {
+        width: 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
     }
 }
