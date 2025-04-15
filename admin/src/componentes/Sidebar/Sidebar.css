@@ -23,6 +23,7 @@
 
 @media(max-width:800px) {
     .sidebar {
+        gap: 5px;
         padding: 30px 0px;
         flex-direction: row;
         width: 100%;
