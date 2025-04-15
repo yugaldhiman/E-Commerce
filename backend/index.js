@@ -68,7 +68,9 @@ app.post("/upload", upload.single("product"), (req, res) => {
     if (!req.file) {
         return res.status(400).json({ success: 0, message: "No file uploaded or wrong key" });
     }
+
     const imageUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+
     res.json({
         success: true,
         image_url: imageUrl,
