@@ -83,6 +83,7 @@
     position: absolute;
     right: 227px;
     top: 17px;
+    /* position: fixed; */
 }
 
 .nav-menu-visible {
@@ -126,6 +127,14 @@
     .nav-drop-down.open {
         transform: rotate(90deg);
     }
+
+    .nav-cart-count {
+        right: 68px;
+        top: 17px;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -153,7 +162,7 @@
     }
 
     .nav-cart-count {
-        right: 23px;
+        right: 28px;
         top: 2px;
         width: 16px;
         height: 16px;
