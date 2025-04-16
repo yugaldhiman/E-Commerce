@@ -5,6 +5,10 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const fs = require("fs");
+const { type } = require("os");
+const { error } = require("console");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -66,17 +70,19 @@ app.get("/", (req, res) => res.send("Express App is Running"));
 // Upload Image API
 app.post("/upload", upload.single("product"), (req, res) => {
     if (!req.file) {
-        return res.status(400).json({ success: 0, message: "No file uploaded or wrong key" });
+        return res
+            .status(400)
+            .json({ success: 0, message: "No file uploaded or wrong key" });
     }
 
-    const imageUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+    const imageUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename
+        }`;
 
     res.json({
         success: true,
         image_url: imageUrl,
     });
 });
-
 
 // Add Product API with Auto-Increment ID
 app.post("/addproduct", async (req, res) => {
@@ -126,6 +132,85 @@ app.get("/allproducts", async (req, res) => {
         res
             .status(500)
             .json({ success: false, message: "Error fetching products" });
+    }
+});
+
+// shema creating user  model
+
+const Users = mongoose.model("Users", {
+    name: { type: String },
+    email: { type: String, unique: true },
+    password: { type: String },
+    cartData: { type: Object },
+    date: { type: Date, default: Date.now },
+});
+
+// Signup API
+app.post("/signup", async (req, res) => {
+    try {
+        let check = await Users.findOne({ email: req.body.email });
+        if (check) {
+            return res
+                .status(400)
+                .json({
+                    success: false,
+                    errors: "User already exists with same email",
+                });
+        }
+
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        let cart = {};
+        for (let i = 0; i < 300; i++) {
+            cart[i] = 0;
+        }
+
+        const user = new Users({
+            name: req.body.username,
+            email: req.body.email,
+            password: hashedPassword,
+            cartData: cart,
+        });
+
+        await user.save();
+        const data = {
+            user: {
+                id: user.id,
+            },
+        };
+
+        const token = jwt.sign(data, "secret_ecom");
+        res.json({ success: true, token });
+    } catch (error) {
+        console.error("Signup error:", error);
+        res.status(500).json({ success: false, message: "Signup failed" });
+    }
+});
+
+// creating endpoint for user login
+
+app.post("/login", async (req, res) => {
+    try {
+        const user = await Users.findOne({ email: req.body.email });
+        if (!user) {
+            return res.json({ success: false, errors: "Wrong Email Id" });
+        }
+
+        const passCompare = await bcrypt.compare(req.body.password, user.password);
+        if (!passCompare) {
+            return res.json({ success: false, errors: "Wrong Password" });
+        }
+
+        const data = {
+            user: {
+                id: user._id,
+            },
+        };
+
+        const token = jwt.sign(data, "secret_ecom");
+        res.json({ success: true, token });
+    } catch (error) {
+        console.error("Login error:", error);
+        res.status(500).json({ success: false, message: "Login failed" });
     }
 });
 
